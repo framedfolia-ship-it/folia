@@ -4,13 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Red & Edward | FOLIA</title>
+<meta name="description" content="Explore the Red and Edward wedding photography collection from Batangas.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#19350c">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <nav>
   <a href="index.html" class="logo">FOLIA</a>
-  <button class="menu-btn" onclick="toggleMenu()" aria-label="Open navigation">☰</button>
+  <button class="menu-btn" type="button" onclick="toggleMenu()" aria-label="Open navigation" aria-expanded="false" aria-controls="navLinks">☰</button>
   <ul class="nav-links" id="navLinks">
     <li><a href="index.html">Home</a></li>
     <li><a href="collections.html">Collections</a></li>
@@ -40,9 +43,9 @@
 </section>
 <main class="page-main">
   <div class="category-heading"><h2>The Photographs</h2><p>11 frames</p></div>
-  <div class="photo-grid"><div class="photo" onclick="openLightbox('images/wedding6.jpg')"><img src="images/wedding6.jpg" alt="Red & Edward photograph 1"></div><div class="photo" onclick="openLightbox('images/wedding7.jpg')"><img src="images/wedding7.jpg" alt="Red & Edward photograph 2"></div><div class="photo" onclick="openLightbox('images/wedding8.jpg')"><img src="images/wedding8.jpg" alt="Red & Edward photograph 3"></div><div class="photo" onclick="openLightbox('images/wedding9.jpg')"><img src="images/wedding9.jpg" alt="Red & Edward photograph 4"></div><div class="photo" onclick="openLightbox('images/wedding10.jpg')"><img src="images/wedding10.jpg" alt="Red & Edward photograph 5"></div><div class="photo" onclick="openLightbox('images/wedding11.jpg')"><img src="images/wedding11.jpg" alt="Red & Edward photograph 6"></div><div class="photo" onclick="openLightbox('images/B2 2.jpg')"><img src="images/B2 2.jpg" alt="Red & Edward photograph 7"></div><div class="photo" onclick="openLightbox('images/B2 3.jpg')"><img src="images/B2 3.jpg" alt="Red & Edward photograph 8"></div><div class="photo" onclick="openLightbox('images/B2 4.jpg')"><img src="images/B2 4.jpg" alt="Red & Edward photograph 9"></div><div class="photo" onclick="openLightbox('images/B2 5.jpg')"><img src="images/B2 5.jpg" alt="Red & Edward photograph 10"></div><div class="photo" onclick="openLightbox('images/B2 6.jpg')"><img src="images/B2 6.jpg" alt="Red & Edward photograph 11"></div></div>
+  <div class="photo-grid"><div class="photo" onclick="openLightbox('images/wedding6.webp')"><img src="images/wedding6.webp" alt="Red & Edward photograph 1" loading="eager" fetchpriority="high" decoding="async" width="2200" height="1467"></div><div class="photo" onclick="openLightbox('images/wedding7.webp')"><img src="images/wedding7.webp" alt="Red & Edward photograph 2" loading="lazy" decoding="async" width="2200" height="1467"></div><div class="photo" onclick="openLightbox('images/wedding8.webp')"><img src="images/wedding8.webp" alt="Red & Edward photograph 3" loading="lazy" decoding="async" width="2200" height="987"></div><div class="photo" onclick="openLightbox('images/wedding9.webp')"><img src="images/wedding9.webp" alt="Red & Edward photograph 4" loading="lazy" decoding="async" width="2200" height="1467"></div><div class="photo" onclick="openLightbox('images/wedding10.webp')"><img src="images/wedding10.webp" alt="Red & Edward photograph 5" loading="lazy" decoding="async" width="2200" height="1467"></div><div class="photo" onclick="openLightbox('images/wedding11.webp')"><img src="images/wedding11.webp" alt="Red & Edward photograph 6" loading="lazy" decoding="async" width="2200" height="1705"></div><div class="photo" onclick="openLightbox('images/B2 2.webp')"><img src="images/B2 2.webp" alt="Red & Edward photograph 7" loading="lazy" decoding="async" width="2400" height="1601"></div><div class="photo" onclick="openLightbox('images/B2 3.webp')"><img src="images/B2 3.webp" alt="Red & Edward photograph 8" loading="lazy" decoding="async" width="2200" height="1467"></div><div class="photo" onclick="openLightbox('images/B2 4.webp')"><img src="images/B2 4.webp" alt="Red & Edward photograph 9" loading="lazy" decoding="async" width="2200" height="1467"></div><div class="photo" onclick="openLightbox('images/B2 5.webp')"><img src="images/B2 5.webp" alt="Red & Edward photograph 10" loading="lazy" decoding="async" width="2400" height="1118"></div><div class="photo" onclick="openLightbox('images/B2 6.webp')"><img src="images/B2 6.webp" alt="Red & Edward photograph 11" loading="lazy" decoding="async" width="2400" height="1264"></div></div>
 </main>
-<div class="lightbox" id="lightbox"><span class="close" onclick="closeLightbox()">×</span><img id="lightboxImage" src="" alt="Expanded photograph"></div>
+<div class="lightbox" id="lightbox"><span class="close" onclick="closeLightbox()">×</span><img id="lightboxImage" src="" alt="Expanded photograph" loading="lazy" decoding="async"></div>
 <script>
 function openLightbox(image){document.getElementById("lightboxImage").src=image;document.getElementById("lightbox").classList.add("active");document.body.style.overflow="hidden"}
 function closeLightbox(){document.getElementById("lightbox").classList.remove("active");document.body.style.overflow=""}
@@ -61,8 +64,8 @@ document.addEventListener("keydown",e=>{if(e.key==="Escape")closeLightbox()});
 
 
 <script>
-function toggleMenu(){document.getElementById("navLinks").classList.toggle("active")}
-document.querySelectorAll(".nav-links a").forEach(a=>a.addEventListener("click",()=>document.getElementById("navLinks").classList.remove("active")));
+function toggleMenu(){const nav=document.getElementById("navLinks"),btn=document.querySelector(".menu-btn"),open=nav.classList.toggle("active");btn.setAttribute("aria-expanded",String(open));}
+document.querySelectorAll(".nav-links a").forEach(a=>a.addEventListener("click",()=>{document.getElementById("navLinks").classList.remove("active");document.querySelector(".menu-btn").setAttribute("aria-expanded","false");}));
 </script>
 
 </body>

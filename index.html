@@ -3,14 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FOLIA | FOLIA</title>
+<title>FOLIA | Photographic Collection</title>
+<meta name="description" content="FOLIA is a visual archive of people, places and meaningful moments, presented as photographic stories.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#19350c">
+<link rel="preload" as="image" href="images/hero.webp">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <nav>
   <a href="index.html" class="logo">FOLIA</a>
-  <button class="menu-btn" onclick="toggleMenu()" aria-label="Open navigation">☰</button>
+  <button class="menu-btn" type="button" onclick="toggleMenu()" aria-label="Open navigation" aria-expanded="false" aria-controls="navLinks">☰</button>
   <ul class="nav-links" id="navLinks">
     <li><a href="index.html">Home</a></li>
     <li><a href="collections.html">Collections</a></li>
@@ -38,7 +42,7 @@
   <div class="object-grid">
 <article class="object-card">
   <a href="jerome-alexandra.html" aria-label="Open Jerome & Alexandra collection">
-    <div class="object-image"><img src="images/wedding1.jpg" alt="Jerome & Alexandra photographic collection"></div>
+    <div class="object-image"><img src="images/wedding1.webp" alt="Jerome & Alexandra photographic collection" loading="eager" fetchpriority="high" decoding="async" width="1080" height="1350"></div>
     <div class="object-info">
       <div><span class="meta">Antipolo City</span><h3>Jerome & Alexandra</h3></div>
       <span class="card-arrow">→</span>
@@ -48,7 +52,7 @@
 </article>
 <article class="object-card">
   <a href="anizza-jecel.html" aria-label="Open Anizza & Jecel collection">
-    <div class="object-image"><img src="images/B5 1.jpg" alt="Anizza & Jecel photographic collection"></div>
+    <div class="object-image"><img src="images/B5 1.webp" alt="Anizza & Jecel photographic collection" loading="lazy" decoding="async" width="1464" height="2197"></div>
     <div class="object-info">
       <div><span class="meta">Calayan Island</span><h3>Anizza & Jecel</h3></div>
       <span class="card-arrow">→</span>
@@ -58,7 +62,7 @@
 </article>
 <article class="object-card">
   <a href="red-edward.html" aria-label="Open Red & Edward collection">
-    <div class="object-image"><img src="images/wedding6.jpg" alt="Red & Edward photographic collection"></div>
+    <div class="object-image"><img src="images/wedding6.webp" alt="Red & Edward photographic collection" loading="lazy" decoding="async" width="2200" height="1467"></div>
     <div class="object-info">
       <div><span class="meta">Batangas</span><h3>Red & Edward</h3></div>
       <span class="card-arrow">→</span>
@@ -68,7 +72,7 @@
 </article>
 <article class="object-card">
   <a href="rowena-aaron.html" aria-label="Open Rowena & Aaron collection">
-    <div class="object-image"><img src="images/wedding12.jpg" alt="Rowena & Aaron photographic collection"></div>
+    <div class="object-image"><img src="images/wedding12.webp" alt="Rowena & Aaron photographic collection" loading="lazy" decoding="async" width="2200" height="1467"></div>
     <div class="object-info">
       <div><span class="meta">Batangas</span><h3>Rowena & Aaron</h3></div>
       <span class="card-arrow">→</span>
@@ -78,7 +82,7 @@
 </article>
 <article class="object-card">
   <a href="juls-shin.html" aria-label="Open Juls & Shin collection">
-    <div class="object-image"><img src="images/wedding18.jpg" alt="Juls & Shin photographic collection"></div>
+    <div class="object-image"><img src="images/wedding18.webp" alt="Juls & Shin photographic collection" loading="lazy" decoding="async" width="2200" height="1626"></div>
     <div class="object-info">
       <div><span class="meta">Baguio</span><h3>Juls & Shin</h3></div>
       <span class="card-arrow">→</span>
@@ -88,7 +92,7 @@
 </article>
 <article class="object-card">
   <a href="featured-story.html" aria-label="Open One Day. Three Moments. collection">
-    <div class="object-image"><img src="images/H1.jpg" alt="One Day. Three Moments. photographic collection"></div>
+    <div class="object-image"><img src="images/H1.webp" alt="One Day. Three Moments. photographic collection" loading="lazy" decoding="async" width="1760" height="2200"></div>
     <div class="object-info">
       <div><span class="meta">FOLIA Feature</span><h3>One Day. Three Moments.</h3></div>
       <span class="card-arrow">→</span>
@@ -140,8 +144,8 @@
 
 
 <script>
-function toggleMenu(){document.getElementById("navLinks").classList.toggle("active")}
-document.querySelectorAll(".nav-links a").forEach(a=>a.addEventListener("click",()=>document.getElementById("navLinks").classList.remove("active")));
+function toggleMenu(){const nav=document.getElementById("navLinks"),btn=document.querySelector(".menu-btn"),open=nav.classList.toggle("active");btn.setAttribute("aria-expanded",String(open));}
+document.querySelectorAll(".nav-links a").forEach(a=>a.addEventListener("click",()=>{document.getElementById("navLinks").classList.remove("active");document.querySelector(".menu-btn").setAttribute("aria-expanded","false");}));
 </script>
 
 </body>

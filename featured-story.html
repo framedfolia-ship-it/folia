@@ -3,14 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Featured Story | FOLIA</title>
+<title>One Day. Three Moments. | FOLIA</title>
+<meta name="description" content="A FOLIA visual essay about three photographic moments connected by feeling, memory and atmosphere.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#19350c">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <nav>
   <a href="index.html" class="logo">FOLIA</a>
-  <button class="menu-btn" onclick="toggleMenu()" aria-label="Open navigation">☰</button>
+  <button class="menu-btn" type="button" onclick="toggleMenu()" aria-label="Open navigation" aria-expanded="false" aria-controls="navLinks">☰</button>
   <ul class="nav-links" id="navLinks">
     <li><a href="index.html">Home</a></li>
     <li><a href="collections.html">Collections</a></li>
@@ -39,15 +42,15 @@
 <section class="story-gallery">
   <div class="category-heading"><h2>Fragments of a day.</h2><p>Three moments / One memory</p></div>
   <article class="story-photo">
-    <img src="images/H1.jpg" alt="Featured story — the quiet before">
+    <img src="images/H1.webp" alt="Featured story — the quiet before" loading="eager" fetchpriority="high" decoding="async" width="1760" height="2200">
     <div class="story-caption"><span>01 / Before the music</span><strong>The quiet before.</strong></div>
   </article>
   <article class="story-photo">
-    <img src="images/H2.jpg" alt="Featured story — when everything paused">
+    <img src="images/H2.webp" alt="Featured story — when everything paused" loading="lazy" decoding="async" width="1080" height="1350">
     <div class="story-caption"><span>02 / When everything paused</span><strong>Somewhere between then and now.</strong></div>
   </article>
   <article class="story-photo">
-    <img src="images/H3.jpg" alt="Featured story — after the yes">
+    <img src="images/H3.webp" alt="Featured story — after the yes" loading="lazy" decoding="async" width="1650" height="2200">
     <div class="story-caption"><span>03 / After the yes</span><strong>And then, there was joy.</strong></div>
   </article>
 </section>
@@ -69,8 +72,8 @@
 
 
 <script>
-function toggleMenu(){document.getElementById("navLinks").classList.toggle("active")}
-document.querySelectorAll(".nav-links a").forEach(a=>a.addEventListener("click",()=>document.getElementById("navLinks").classList.remove("active")));
+function toggleMenu(){const nav=document.getElementById("navLinks"),btn=document.querySelector(".menu-btn"),open=nav.classList.toggle("active");btn.setAttribute("aria-expanded",String(open));}
+document.querySelectorAll(".nav-links a").forEach(a=>a.addEventListener("click",()=>{document.getElementById("navLinks").classList.remove("active");document.querySelector(".menu-btn").setAttribute("aria-expanded","false");}));
 </script>
 
 </body>

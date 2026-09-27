@@ -4,13 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Juls & Shin | FOLIA</title>
+<meta name="description" content="Explore the Juls and Shin wedding photography collection from Baguio.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#19350c">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <nav>
   <a href="index.html" class="logo">FOLIA</a>
-  <button class="menu-btn" onclick="toggleMenu()" aria-label="Open navigation">☰</button>
+  <button class="menu-btn" type="button" onclick="toggleMenu()" aria-label="Open navigation" aria-expanded="false" aria-controls="navLinks">☰</button>
   <ul class="nav-links" id="navLinks">
     <li><a href="index.html">Home</a></li>
     <li><a href="collections.html">Collections</a></li>
@@ -30,7 +33,7 @@
     <div class="label">Object Details</div>
     <h2 class="detail-title">Juls & Shin</h2>
     <p class="detail-copy">A collection documenting Juls and Shin through natural moments, emotion and the atmosphere of their wedding day.</p>
-    <p class="detail-copy"><strong>Location:</strong> Baguio<br><strong>Format:</strong> Photographic collection<br><strong>Contents:</strong> 9 selected photographs</p>
+    <p class="detail-copy"><strong>Location:</strong> Baguio<br><strong>Format:</strong> Photographic collection<br><strong>Contents:</strong> 8 selected photographs</p>
     <a class="back-link" href="collections.html">← Back to Collections</a>
   </div>
   <div class="detail-box">
@@ -39,10 +42,10 @@
   </div>
 </section>
 <main class="page-main">
-  <div class="category-heading"><h2>The Photographs</h2><p>9 frames</p></div>
-  <div class="photo-grid"><div class="photo" onclick="openLightbox('images/wedding18.jpg')"><img src="images/wedding18.jpg" alt="Juls & Shin photograph 1"></div><div class="photo" onclick="openLightbox('images/wedding19.jpg')"><img src="images/wedding19.jpg" alt="Juls & Shin photograph 2"></div><div class="photo" onclick="openLightbox('images/wedding20.jpg')"><img src="images/wedding20.jpg" alt="Juls & Shin photograph 3"></div><div class="photo" onclick="openLightbox('images/wedding21.jpg')"><img src="images/wedding21.jpg" alt="Juls & Shin photograph 4"></div><div class="photo" onclick="openLightbox('images/wedding22.jpg')"><img src="images/wedding22.jpg" alt="Juls & Shin photograph 5"></div><div class="photo" onclick="openLightbox('images/wedding23.jpg')"><img src="images/wedding23.jpg" alt="Juls & Shin photograph 6"></div><div class="photo" onclick="openLightbox('images/wedding24.jpg')"><img src="images/wedding24.jpg" alt="Juls & Shin photograph 7"></div><div class="photo" onclick="openLightbox('images/wedding25.jpg')"><img src="images/wedding25.jpg" alt="Juls & Shin photograph 8"></div><div class="photo" onclick="openLightbox('images/wedding26.jpg')"><img src="images/wedding26.jpg" alt="Juls & Shin photograph 9"></div></div>
+  <div class="category-heading"><h2>The Photographs</h2><p>8 frames</p></div>
+  <div class="photo-grid"><div class="photo" onclick="openLightbox('images/wedding18.webp')"><img src="images/wedding18.webp" alt="Juls & Shin photograph 1" loading="eager" fetchpriority="high" decoding="async" width="2200" height="1626"></div><div class="photo" onclick="openLightbox('images/wedding19.webp')"><img src="images/wedding19.webp" alt="Juls & Shin photograph 2" loading="lazy" decoding="async" width="2084" height="2400"></div><div class="photo" onclick="openLightbox('images/wedding20.webp')"><img src="images/wedding20.webp" alt="Juls & Shin photograph 3" loading="lazy" decoding="async" width="2200" height="1467"></div><div class="photo" onclick="openLightbox('images/wedding21.webp')"><img src="images/wedding21.webp" alt="Juls & Shin photograph 4" loading="lazy" decoding="async" width="1489" height="2200"></div><div class="photo" onclick="openLightbox('images/wedding22.webp')"><img src="images/wedding22.webp" alt="Juls & Shin photograph 5" loading="lazy" decoding="async" width="2200" height="1467"></div><div class="photo" onclick="openLightbox('images/wedding23.webp')"><img src="images/wedding23.webp" alt="Juls & Shin photograph 6" loading="lazy" decoding="async" width="2200" height="1760"></div><div class="photo" onclick="openLightbox('images/wedding24.webp')"><img src="images/wedding24.webp" alt="Juls & Shin photograph 7" loading="lazy" decoding="async" width="2400" height="1652"></div><div class="photo" onclick="openLightbox('images/wedding25.webp')"><img src="images/wedding25.webp" alt="Juls & Shin photograph 8" loading="lazy" decoding="async" width="1755" height="2400"></div></div>
 </main>
-<div class="lightbox" id="lightbox"><span class="close" onclick="closeLightbox()">×</span><img id="lightboxImage" src="" alt="Expanded photograph"></div>
+<div class="lightbox" id="lightbox"><span class="close" onclick="closeLightbox()">×</span><img id="lightboxImage" src="" alt="Expanded photograph" loading="lazy" decoding="async"></div>
 <script>
 function openLightbox(image){document.getElementById("lightboxImage").src=image;document.getElementById("lightbox").classList.add("active");document.body.style.overflow="hidden"}
 function closeLightbox(){document.getElementById("lightbox").classList.remove("active");document.body.style.overflow=""}
@@ -61,8 +64,8 @@ document.addEventListener("keydown",e=>{if(e.key==="Escape")closeLightbox()});
 
 
 <script>
-function toggleMenu(){document.getElementById("navLinks").classList.toggle("active")}
-document.querySelectorAll(".nav-links a").forEach(a=>a.addEventListener("click",()=>document.getElementById("navLinks").classList.remove("active")));
+function toggleMenu(){const nav=document.getElementById("navLinks"),btn=document.querySelector(".menu-btn"),open=nav.classList.toggle("active");btn.setAttribute("aria-expanded",String(open));}
+document.querySelectorAll(".nav-links a").forEach(a=>a.addEventListener("click",()=>{document.getElementById("navLinks").classList.remove("active");document.querySelector(".menu-btn").setAttribute("aria-expanded","false");}));
 </script>
 
 </body>

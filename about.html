@@ -3,19 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About | FOLIA</title>
+<title>About FOLIA | Photography Collection</title>
+<meta name="description" content="Learn about FOLIA, a photographic archive built around the idea that photographs can be experienced as stories and memories.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#19350c">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <nav>
   <a href="index.html" class="logo">FOLIA</a>
-  <button class="menu-btn" onclick="toggleMenu()" aria-label="Open navigation">☰</button>
+  <button class="menu-btn" type="button" onclick="toggleMenu()" aria-label="Open navigation" aria-expanded="false" aria-controls="navLinks">☰</button>
   <ul class="nav-links" id="navLinks">
     <li><a href="index.html">Home</a></li>
     <li><a href="collections.html">Collections</a></li>
     <li><a href="gallery.html">Gallery</a></li>
-    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="about.html" class="active" aria-current="page">About</a></li>
   </ul>
 </nav>
 
@@ -27,7 +30,7 @@
 </header>
 <main class="page-main">
   <div class="about-layout">
-    <div class="about-image"><img src="images/about1.jpg" alt="FOLIA photographic work"></div>
+    <div class="about-image"><img src="images/about1.webp" alt="FOLIA photographic work" loading="eager" fetchpriority="high" decoding="async" width="2048" height="1328"></div>
     <div class="about-copy">
       <div class="label">The philosophy</div>
       <h2>Look closer.<br><em>Stay longer.</em></h2>
@@ -50,8 +53,8 @@
 
 
 <script>
-function toggleMenu(){document.getElementById("navLinks").classList.toggle("active")}
-document.querySelectorAll(".nav-links a").forEach(a=>a.addEventListener("click",()=>document.getElementById("navLinks").classList.remove("active")));
+function toggleMenu(){const nav=document.getElementById("navLinks"),btn=document.querySelector(".menu-btn"),open=nav.classList.toggle("active");btn.setAttribute("aria-expanded",String(open));}
+document.querySelectorAll(".nav-links a").forEach(a=>a.addEventListener("click",()=>{document.getElementById("navLinks").classList.remove("active");document.querySelector(".menu-btn").setAttribute("aria-expanded","false");}));
 </script>
 
 </body>

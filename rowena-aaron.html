@@ -4,13 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rowena & Aaron | FOLIA</title>
+<meta name="description" content="Explore the Rowena and Aaron wedding photography collection from Batangas.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#19350c">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <nav>
   <a href="index.html" class="logo">FOLIA</a>
-  <button class="menu-btn" onclick="toggleMenu()" aria-label="Open navigation">☰</button>
+  <button class="menu-btn" type="button" onclick="toggleMenu()" aria-label="Open navigation" aria-expanded="false" aria-controls="navLinks">☰</button>
   <ul class="nav-links" id="navLinks">
     <li><a href="index.html">Home</a></li>
     <li><a href="collections.html">Collections</a></li>
@@ -40,9 +43,9 @@
 </section>
 <main class="page-main">
   <div class="category-heading"><h2>The Photographs</h2><p>6 frames</p></div>
-  <div class="photo-grid"><div class="photo" onclick="openLightbox('images/wedding12.jpg')"><img src="images/wedding12.jpg" alt="Rowena & Aaron photograph 1"></div><div class="photo" onclick="openLightbox('images/wedding13.jpg')"><img src="images/wedding13.jpg" alt="Rowena & Aaron photograph 2"></div><div class="photo" onclick="openLightbox('images/wedding14.jpg')"><img src="images/wedding14.jpg" alt="Rowena & Aaron photograph 3"></div><div class="photo" onclick="openLightbox('images/wedding15.jpg')"><img src="images/wedding15.jpg" alt="Rowena & Aaron photograph 4"></div><div class="photo" onclick="openLightbox('images/wedding16.jpg')"><img src="images/wedding16.jpg" alt="Rowena & Aaron photograph 5"></div><div class="photo" onclick="openLightbox('images/wedding17.jpg')"><img src="images/wedding17.jpg" alt="Rowena & Aaron photograph 6"></div></div>
+  <div class="photo-grid"><div class="photo" onclick="openLightbox('images/wedding12.webp')"><img src="images/wedding12.webp" alt="Rowena & Aaron photograph 1" loading="eager" fetchpriority="high" decoding="async" width="2200" height="1467"></div><div class="photo" onclick="openLightbox('images/wedding13.webp')"><img src="images/wedding13.webp" alt="Rowena & Aaron photograph 2" loading="lazy" decoding="async" width="1848" height="2400"></div><div class="photo" onclick="openLightbox('images/wedding14.webp')"><img src="images/wedding14.webp" alt="Rowena & Aaron photograph 3" loading="lazy" decoding="async" width="1760" height="2200"></div><div class="photo" onclick="openLightbox('images/wedding15.webp')"><img src="images/wedding15.webp" alt="Rowena & Aaron photograph 4" loading="lazy" decoding="async" width="1760" height="2200"></div><div class="photo" onclick="openLightbox('images/wedding16.webp')"><img src="images/wedding16.webp" alt="Rowena & Aaron photograph 5" loading="lazy" decoding="async" width="2200" height="1760"></div><div class="photo" onclick="openLightbox('images/wedding17.webp')"><img src="images/wedding17.webp" alt="Rowena & Aaron photograph 6" loading="lazy" decoding="async" width="1760" height="2200"></div></div>
 </main>
-<div class="lightbox" id="lightbox"><span class="close" onclick="closeLightbox()">×</span><img id="lightboxImage" src="" alt="Expanded photograph"></div>
+<div class="lightbox" id="lightbox"><span class="close" onclick="closeLightbox()">×</span><img id="lightboxImage" src="" alt="Expanded photograph" loading="lazy" decoding="async"></div>
 <script>
 function openLightbox(image){document.getElementById("lightboxImage").src=image;document.getElementById("lightbox").classList.add("active");document.body.style.overflow="hidden"}
 function closeLightbox(){document.getElementById("lightbox").classList.remove("active");document.body.style.overflow=""}
@@ -61,8 +64,8 @@ document.addEventListener("keydown",e=>{if(e.key==="Escape")closeLightbox()});
 
 
 <script>
-function toggleMenu(){document.getElementById("navLinks").classList.toggle("active")}
-document.querySelectorAll(".nav-links a").forEach(a=>a.addEventListener("click",()=>document.getElementById("navLinks").classList.remove("active")));
+function toggleMenu(){const nav=document.getElementById("navLinks"),btn=document.querySelector(".menu-btn"),open=nav.classList.toggle("active");btn.setAttribute("aria-expanded",String(open));}
+document.querySelectorAll(".nav-links a").forEach(a=>a.addEventListener("click",()=>{document.getElementById("navLinks").classList.remove("active");document.querySelector(".menu-btn").setAttribute("aria-expanded","false");}));
 </script>
 
 </body>

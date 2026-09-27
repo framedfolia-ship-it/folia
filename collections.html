@@ -4,16 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Collections | FOLIA</title>
+<meta name="description" content="Explore FOLIA photographic collections, each presented as an individual visual story with its own images and details.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#19350c">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <nav>
   <a href="index.html" class="logo">FOLIA</a>
-  <button class="menu-btn" onclick="toggleMenu()" aria-label="Open navigation">☰</button>
+  <button class="menu-btn" type="button" onclick="toggleMenu()" aria-label="Open navigation" aria-expanded="false" aria-controls="navLinks">☰</button>
   <ul class="nav-links" id="navLinks">
     <li><a href="index.html">Home</a></li>
-    <li><a href="collections.html" class="active">Collections</a></li>
+    <li><a href="collections.html" class="active" aria-current="page">Collections</a></li>
     <li><a href="gallery.html">Gallery</a></li>
     <li><a href="about.html">About</a></li>
   </ul>
@@ -30,7 +33,7 @@
   <div class="archive-grid">
 <article class="archive-card">
 <a href="jerome-alexandra.html">
-  <div class="object-image"><img src="images/wedding1.jpg" alt="Jerome & Alexandra"></div>
+  <div class="object-image"><img src="images/wedding1.webp" alt="Jerome & Alexandra" loading="eager" fetchpriority="high" decoding="async" width="1080" height="1350"></div>
   <div class="object-info">
     <span class="meta">Antipolo City</span>
     <h3>Jerome & Alexandra</h3>
@@ -41,7 +44,7 @@
 </article>
 <article class="archive-card">
 <a href="anizza-jecel.html">
-  <div class="object-image"><img src="images/B5 1.jpg" alt="Anizza & Jecel"></div>
+  <div class="object-image"><img src="images/B5 1.webp" alt="Anizza & Jecel" loading="lazy" decoding="async" width="1464" height="2197"></div>
   <div class="object-info">
     <span class="meta">Calayan Island</span>
     <h3>Anizza & Jecel</h3>
@@ -52,7 +55,7 @@
 </article>
 <article class="archive-card">
 <a href="red-edward.html">
-  <div class="object-image"><img src="images/wedding6.jpg" alt="Red & Edward"></div>
+  <div class="object-image"><img src="images/wedding6.webp" alt="Red & Edward" loading="lazy" decoding="async" width="2200" height="1467"></div>
   <div class="object-info">
     <span class="meta">Batangas</span>
     <h3>Red & Edward</h3>
@@ -63,7 +66,7 @@
 </article>
 <article class="archive-card">
 <a href="rowena-aaron.html">
-  <div class="object-image"><img src="images/wedding12.jpg" alt="Rowena & Aaron"></div>
+  <div class="object-image"><img src="images/wedding12.webp" alt="Rowena & Aaron" loading="lazy" decoding="async" width="2200" height="1467"></div>
   <div class="object-info">
     <span class="meta">Batangas</span>
     <h3>Rowena & Aaron</h3>
@@ -74,7 +77,7 @@
 </article>
 <article class="archive-card">
 <a href="juls-shin.html">
-  <div class="object-image"><img src="images/wedding18.jpg" alt="Juls & Shin"></div>
+  <div class="object-image"><img src="images/wedding18.webp" alt="Juls & Shin" loading="lazy" decoding="async" width="2200" height="1626"></div>
   <div class="object-info">
     <span class="meta">Baguio</span>
     <h3>Juls & Shin</h3>
@@ -85,7 +88,7 @@
 </article>
 <article class="archive-card">
 <a href="featured-story.html">
-  <div class="object-image"><img src="images/H1.jpg" alt="One Day. Three Moments."></div>
+  <div class="object-image"><img src="images/H1.webp" alt="One Day. Three Moments." loading="lazy" decoding="async" width="1760" height="2200"></div>
   <div class="object-info">
     <span class="meta">FOLIA Feature</span>
     <h3>One Day. Three Moments.</h3>
@@ -107,8 +110,8 @@
 
 
 <script>
-function toggleMenu(){document.getElementById("navLinks").classList.toggle("active")}
-document.querySelectorAll(".nav-links a").forEach(a=>a.addEventListener("click",()=>document.getElementById("navLinks").classList.remove("active")));
+function toggleMenu(){const nav=document.getElementById("navLinks"),btn=document.querySelector(".menu-btn"),open=nav.classList.toggle("active");btn.setAttribute("aria-expanded",String(open));}
+document.querySelectorAll(".nav-links a").forEach(a=>a.addEventListener("click",()=>{document.getElementById("navLinks").classList.remove("active");document.querySelector(".menu-btn").setAttribute("aria-expanded","false");}));
 </script>
 
 </body>
